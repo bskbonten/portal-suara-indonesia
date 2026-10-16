@@ -28,6 +28,8 @@ type Story = {
   readTime: string
   image: string
   status: string
+  sourceUrl: string
+  facts: string
 }
 
 const stories: Story[] = [
@@ -42,6 +44,8 @@ const stories: Story[] = [
     readTime: '4 menit',
     image: 'https://images.unsplash.com/photo-1547683905-f686c993aae5?auto=format&fit=crop&w=1000&q=85',
     status: 'TERKONFIRMASI',
+    sourceUrl: 'https://bnpb.go.id/',
+    facts: 'BNPB menjadi rujukan resmi untuk informasi kebencanaan nasional, termasuk asesmen dampak, pengungsian, dan penanganan darurat.',
   },
   {
     id: 2,
@@ -54,6 +58,8 @@ const stories: Story[] = [
     readTime: '5 menit',
     image: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1000&q=85',
     status: 'DALAM PENYELIDIKAN',
+    sourceUrl: 'https://www.bgn.go.id/',
+    facts: 'Laporan gangguan kesehatan perlu dibedakan dari kesimpulan penyebab; verifikasi membutuhkan pemeriksaan kesehatan, makanan, dan keterangan instansi berwenang.',
   },
   {
     id: 3,
@@ -66,6 +72,8 @@ const stories: Story[] = [
     readTime: '6 menit',
     image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1000&q=85',
     status: 'DIPERBARUI',
+    sourceUrl: 'https://www.kpk.go.id/',
+    facts: 'Status terperiksa, tersangka, terdakwa, dan terpidana memiliki arti hukum berbeda; seseorang tidak boleh disebut bersalah sebelum ada putusan berkekuatan hukum tetap.',
   },
   {
     id: 4,
@@ -78,6 +86,8 @@ const stories: Story[] = [
     readTime: '3 menit',
     image: 'https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=1000&q=85',
     status: 'TERKONFIRMASI',
+    sourceUrl: 'https://www.kpai.go.id/',
+    facts: 'Peliputan perundungan wajib melindungi identitas anak dan korban. Informasi yang belum diverifikasi tidak boleh dipublikasikan sebagai fakta.',
   },
   {
     id: 5,
@@ -90,6 +100,8 @@ const stories: Story[] = [
     readTime: '4 menit',
     image: 'https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1000&q=85',
     status: 'LAPORAN AWAL',
+    sourceUrl: 'https://bpbd.jakarta.go.id/',
+    facts: 'Kanal BPBD digunakan untuk memantau informasi kebencanaan daerah. Detail lokasi, dampak, dan penanganan harus mengikuti pembaruan resmi setempat.',
   },
 ]
 
@@ -134,7 +146,7 @@ export default function Home() {
       </header>
 
       <main id="beranda">
-        <section className="mx-auto max-w-7xl px-5 pb-12 pt-12 lg:px-8 lg:pb-20 lg:pt-20"><div className="grid items-end gap-10 lg:grid-cols-[1fr_390px]"><div><div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#f4b7bb] bg-[#fff6f6] px-3 py-1.5 text-[11px] font-bold tracking-[0.14em] text-[#d42f3a]"><Sparkles size={13} /> INFORMASI PUBLIK TERPILIH</div><h1 className="max-w-3xl text-4xl font-black leading-[1.07] tracking-[-0.04em] text-[#0d1b35] sm:text-6xl">Mengungkap fakta.<br /><span className="text-[#e3343f]">Mengikuti perkembangan.</span></h1><p className="mt-6 max-w-xl text-base leading-7 text-slate-500">Portal informasi isu terkini Indonesia yang menyajikan fakta, kronologi, dan perkembangan dari sumber tepercaya secara jernih.</p></div><div className="relative"><div className="absolute -inset-3 rounded-[28px] bg-[#edf2f8]" /><div className="relative rounded-2xl bg-[#0d1b35] p-6 text-white shadow-xl shadow-slate-200"><div className="flex items-start justify-between"><div><div className="mb-4 flex h-9 w-9 items-center justify-center rounded-lg bg-[#e3343f]"><ShieldCheck size={18} /></div><p className="text-xs font-semibold uppercase tracking-[0.15em] text-white/50">Prinsip kami</p><p className="mt-2 text-xl font-bold leading-snug">Jernih dalam fakta,<br />peduli pada dampak.</p></div><div className="text-right text-[10px] leading-5 text-white/50">PEMBARUAN<br /><span className="font-bold text-white/80">16 OKT 2026</span></div></div><div className="mt-7 flex items-center justify-between border-t border-white/10 pt-4 text-xs text-white/55"><span>5 kategori terpantau</span><span className="flex items-center gap-1 text-white/80"><span className="h-2 w-2 rounded-full bg-emerald-400" /> Sistem aktif</span></div></div></div></div></section>
+        <section className="mx-auto max-w-7xl px-5 pb-12 pt-12 lg:px-8 lg:pb-20 lg:pt-20"><div className="grid items-end gap-10 lg:grid-cols-[1fr_390px]"><div><div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#f4b7bb] bg-[#fff6f6] px-3 py-1.5 text-[11px] font-bold tracking-[0.14em] text-[#d42f3a]"><Sparkles size={13} /> INFORMASI PUBLIK TERPILIH</div><h1 className="max-w-3xl text-4xl font-black leading-[1.07] tracking-[-0.04em] text-[#0d1b35] sm:text-6xl">Mengungkap fakta.<br /><span className="text-[#e3343f]">Mengikuti perkembangan.</span></h1><p className="mt-6 max-w-xl text-base leading-7 text-slate-500">Portal pembelajaran yang memisahkan fakta terverifikasi, laporan awal, dan hal yang masih diselidiki. Setiap kartu menyertakan sumber resmi untuk ditelusuri.</p></div><div className="relative"><div className="absolute -inset-3 rounded-[28px] bg-[#edf2f8]" /><div className="relative rounded-2xl bg-[#0d1b35] p-6 text-white shadow-xl shadow-slate-200"><div className="flex items-start justify-between"><div><div className="mb-4 flex h-9 w-9 items-center justify-center rounded-lg bg-[#e3343f]"><ShieldCheck size={18} /></div><p className="text-xs font-semibold uppercase tracking-[0.15em] text-white/50">Prinsip kami</p><p className="mt-2 text-xl font-bold leading-snug">Jernih dalam fakta,<br />peduli pada dampak.</p></div><div className="text-right text-[10px] leading-5 text-white/50">PEMBARUAN<br /><span className="font-bold text-white/80">16 OKT 2026</span></div></div><div className="mt-7 flex items-center justify-between border-t border-white/10 pt-4 text-xs text-white/55"><span>4 kategori terpantau</span><span className="flex items-center gap-1 text-white/80"><span className="h-2 w-2 rounded-full bg-emerald-400" /> Sistem aktif</span></div></div></div></div></section>
 
         <section className="border-y border-slate-200 bg-white"><div className="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-5 lg:flex-row lg:items-center lg:justify-between lg:px-8"><div className="flex items-center gap-3 text-sm font-bold text-[#0d1b35]"><span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#fff0f0] text-[#e3343f]"><Search size={16} /></span>Cari informasi</div><div className="flex w-full max-w-2xl gap-3"><div className="relative flex-1"><Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={17} /><input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Cari judul atau isu yang ingin kamu ikuti..." className="h-11 w-full rounded-xl border border-slate-200 bg-[#f8fafc] pl-11 pr-4 text-sm outline-none transition focus:border-[#e3343f] focus:ring-4 focus:ring-[#e3343f]/10" /></div><button className="hidden h-11 rounded-xl bg-[#e3343f] px-6 text-sm font-bold text-white shadow-sm transition hover:bg-[#c92d37] sm:block">Cari</button></div></div></section>
 
@@ -153,9 +165,9 @@ export default function Home() {
 }
 
 function StoryRow({ story }: { story: Story }) {
-  return <article className="group flex gap-4 rounded-2xl border border-slate-200 bg-white p-3 transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-slate-200"><img src={story.image} alt="" className="h-28 w-28 shrink-0 rounded-xl object-cover" /><div className="py-1"><div className="mb-2 flex items-center gap-2 text-[9px] font-bold tracking-[0.12em] text-[#e3343f]"><span className="truncate">{story.category}</span><span className="text-slate-300">•</span><span className="whitespace-nowrap text-slate-400">{story.date}</span></div><h3 className="line-clamp-3 text-sm font-bold leading-5 text-[#0d1b35] transition group-hover:text-[#e3343f]">{story.title}</h3><p className="mt-2 text-[11px] text-slate-400">{story.source} · {story.readTime}</p></div></article>
+  return <article className="group flex gap-4 rounded-2xl border border-slate-200 bg-white p-3 transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-slate-200"><img src={story.image} alt="" className="h-28 w-28 shrink-0 rounded-xl object-cover" /><div className="py-1"><div className="mb-2 flex items-center gap-2 text-[9px] font-bold tracking-[0.12em] text-[#e3343f]"><span className="truncate">{story.category}</span><span className="text-slate-300">•</span><span className="whitespace-nowrap text-slate-400">{story.date}</span></div><h3 className="line-clamp-3 text-sm font-bold leading-5 text-[#0d1b35] transition group-hover:text-[#e3343f]">{story.title}</h3><p className="mt-2 text-[11px] text-slate-400">{story.source} · {story.readTime}</p><p className="mt-2 line-clamp-2 text-[11px] leading-4 text-slate-500">{story.facts}</p></div></article>
 }
 
 function StoryCard({ story }: { story: Story }) {
-  return <article className="group overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-200"><div className="relative h-48 overflow-hidden"><img src={story.image} alt="" className="h-full w-full object-cover transition duration-700 group-hover:scale-105" /><div className="absolute left-3 top-3 rounded-md bg-white/95 px-2 py-1 text-[9px] font-bold tracking-[0.12em] text-[#e3343f]">{story.status}</div></div><div className="p-5"><div className="mb-3 flex items-center justify-between text-[10px] font-bold uppercase tracking-[0.12em] text-slate-400"><span>{story.category}</span><span className="flex items-center gap-1"><Clock3 size={12} /> {story.readTime}</span></div><h3 className="line-clamp-2 text-lg font-black leading-6 text-[#0d1b35] transition group-hover:text-[#e3343f]">{story.title}</h3><p className="mt-3 line-clamp-2 text-sm leading-5 text-slate-500">{story.summary}</p><div className="mt-5 flex items-center justify-between border-t border-slate-100 pt-4 text-xs text-slate-400"><span className="flex items-center gap-1.5"><CalendarDays size={13} /> {story.date}</span><span className="font-bold text-[#0d1b35]">{story.source}</span></div></div></article>
+  return <article className="group overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-200"><div className="relative h-48 overflow-hidden"><img src={story.image} alt="" className="h-full w-full object-cover transition duration-700 group-hover:scale-105" /><div className="absolute left-3 top-3 rounded-md bg-white/95 px-2 py-1 text-[9px] font-bold tracking-[0.12em] text-[#e3343f]">{story.status}</div></div><div className="p-5"><div className="mb-3 flex items-center justify-between text-[10px] font-bold uppercase tracking-[0.12em] text-slate-400"><span>{story.category}</span><span className="flex items-center gap-1"><Clock3 size={12} /> {story.readTime}</span></div><h3 className="line-clamp-2 text-lg font-black leading-6 text-[#0d1b35] transition group-hover:text-[#e3343f]">{story.title}</h3><p className="mt-3 line-clamp-2 text-sm leading-5 text-slate-500">{story.summary}</p><p className="mt-3 line-clamp-2 border-l-2 border-[#e3343f] pl-3 text-xs leading-5 text-slate-600"><span className="font-bold text-[#0d1b35]">Fakta:</span> {story.facts}</p><div className="mt-5 flex items-center justify-between border-t border-slate-100 pt-4 text-xs text-slate-400"><span className="flex items-center gap-1.5"><CalendarDays size={13} /> {story.date}</span><a href={story.sourceUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 font-bold text-[#0d1b35] hover:text-[#e3343f]">{story.source} <ExternalLink size={11} /></a></div></div></article>
 }
